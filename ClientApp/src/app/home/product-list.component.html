@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <h1 id="tableLabel">All the cloud services</h1>
+  <p>This component displays products from the all the clouds service.</p>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    <h4>{{ componentTitle }}</h4>
+  </div>
+
+  <div class="card-body" *ngIf="products">
+    <div class="row" *ngFor="let product of products">
+      <div class="col-md-6">
+        <h5>
+          <a [routerLink]="['/products', product.productId]">
+            {{ product.name }}
+          </a>
+        </h5>
+        <p>{{ product.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
