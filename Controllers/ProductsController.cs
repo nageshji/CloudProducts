@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using CloudProducts.Models;
 using CloudProducts.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 
 namespace CloudProducts.Controllers
 {
@@ -31,17 +27,7 @@ namespace CloudProducts.Controllers
         [HttpGet]
         public IEnumerable<Product> Get()
         {
-            return _mapper.Map<List<Product>>(_productRepository.GetProducts());
-
-            //var products = new List<Product>();
-            //products.Add(new Product
-            //{
-            //    Name = "Apple",
-            //    Description = "is beautiful",
-            //    UnitPrice = 100,
-            //    ProductId = "A101"
-            //});
-            //return products;
+            return _mapper.Map<List<Product>>(_productRepository.GetProducts());           
         }        
     }
 }

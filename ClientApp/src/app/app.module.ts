@@ -7,29 +7,18 @@ import { RouterModule } from "@angular/router";
 import { AppComponent } from "./app.component";
 import { NavMenuComponent } from "./shared/nav-menu.component";
 import { HomeComponent } from "./home/home.component";
-import { ProductListComponent } from "./products/product-list.component";
-import { ProductDetailComponent } from "./products/product-detail.component";
+import { ProductModule } from "./products/product.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    ProductListComponent,
-    ProductDetailComponent,
-  ],
+  declarations: [AppComponent, NavMenuComponent, HomeComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: "ng-cli-universal" }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
       { path: "", component: HomeComponent, pathMatch: "full" },
-      { path: "products", component: ProductListComponent },
-      {
-        path: "products/:id",
-        component: ProductDetailComponent,
-      },
     ]),
+    ProductModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
